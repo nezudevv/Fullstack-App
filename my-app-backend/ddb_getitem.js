@@ -5,8 +5,8 @@ var AWS = require("aws-sdk");
 AWS.config.update({
   region: "us-east-2",
   endpoint: "dynamodb.us-east-2.amazonaws.com",
-  // accessKeyId: "AKIAWHRUE6ZD4NFBXVGT",
-  // secretAccessKey: "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",
+  // accessKeyId: "",
+  // secretAccessKey: "",
 });
 
 // Create the DynamoDB service object
