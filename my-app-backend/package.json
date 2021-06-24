@@ -1,0 +1,17 @@
+{
+  "name": "my-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.18.0",
+    "aws-sdk": "^2.933.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

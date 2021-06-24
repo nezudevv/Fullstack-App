@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import InputsComponent from "./InputsComponent";
 
 function App() {
+  const [rapName, setRapName] = useState("");
+  const [currentName, setCurrentName] = useState("");
+  // Functions
+
+  async function onClickHandler() {
+    try {
+      const res = await fetch(`http://localhost:8000/api/rappers/${rapName}`);
+      const data = await res.json();
+      setCurrentName(data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function inputHandler(e) {
+    setRapName(e.target.value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Get Rapper's BirthName</h1>
+      <h2>Result: {currentName.birthName}</h2>
+      <input type='text' onInput={inputHandler} />
+      <button onClick={onClickHandler}>Click Me</button>
+      <InputsComponent />
     </div>
   );
 }
