@@ -5,8 +5,8 @@ var AWS = require("aws-sdk");
 AWS.config.update({
   region: "us-east-2",
   endpoint: "dynamodb.us-east-2.amazonaws.com",
-  accessKeyId: "AKIAWHRUE6ZD4NFBXVGT",
-  secretAccessKey: "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",
+  // accessKeyId: "AKIAWHRUE6ZD4NFBXVGT",
+  // secretAccessKey: "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",
 });
 
 // Create the DynamoDB service object
@@ -15,7 +15,7 @@ var ddb = new AWS.DynamoDB({ apiVersion: "2012-08-10" });
 var params = {
   TableName: "Rappers",
   Key: {
-    id: { S: "1" },
+    id: { S: "2" },
   },
   ProjectionExpression: "birthName",
 };
