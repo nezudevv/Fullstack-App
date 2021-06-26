@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const PORT = 8000;
-
+//Using Cors
 app.use(cors());
 
 const rappers = {
