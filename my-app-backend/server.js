@@ -1,6 +1,11 @@
-const express = require("express");
+import express from "express";
+// import morgan from "morgan";
+// import bodyparser from "body-parser";
+import cors from "cors";
+
 const app = express();
-const cors = require("cors");
+// app.use(morgan("combined"));
+
 const PORT = 8000;
 //Using Cors
 //Using express(). within const app
