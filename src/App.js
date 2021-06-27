@@ -4,7 +4,7 @@ import InputsComponent from "./InputsComponent";
 function App() {
   const [rapName, setRapName] = useState("");
   const [currentName, setCurrentName] = useState("");
-  // Functions test
+  // Functions
 
   async function onClickHandler() {
     try {
