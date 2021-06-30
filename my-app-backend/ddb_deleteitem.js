@@ -2,7 +2,7 @@ import accessKeyId from "conf.js";
 import sAccessKey from "conf.js";
 
 // Load the AWS SDK for Node.js
-var AWS = require("aws-sdk");
+import AWS from "aws-sdk";
 
 // Set the region and etc.
 AWS.config.update({

@@ -1,3 +1,6 @@
+import accessKeyId from "conf.js";
+import sAccessKey from "conf.js";
+
 // Load the AWS SDK for Node.js
 import AWS from "aws-sdk";
 
@@ -5,6 +8,8 @@ import AWS from "aws-sdk";
 AWS.config.update({
   region: "us-east-2",
   endpoint: "dynamodb.us-east-2.amazonaws.com",
+  accessKeyId: `${accessKeyId}`,
+  secretAccessKey: `${sAccessKey}`,
 });
 
 // Create the DynamoDB service object
