@@ -18,15 +18,19 @@ function InputsComponent() {
       birthName: input,
       stageName: secondInput,
     };
-    console.log(newItem);
-    const info = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newItem),
-    };
-    await fetch("http://localhost:8000/api", info);
+    if (input === "") {
+      alert("Fields must not be empty.");
+    } else {
+      console.log(newItem);
+      const info = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newItem),
+      };
+      await fetch("http://localhost:8000/api", info);
+    }
   }
 
   return (
