@@ -45,7 +45,7 @@ function InputsComponent() {
         value={secondInput}
         onInput={secondInputHandler}
       ></input>
-      <br></br>
+
       <button onClick={onClickHandler}>Submit</button>
     </div>
   );

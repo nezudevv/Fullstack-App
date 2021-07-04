@@ -1,0 +1,29 @@
+.body-wrapper {
+  /* border: solid red; */
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.core-components-wrapper {
+  display: inline-block;
+  /* border: solid blue; */
+}
+.names-container {
+  /* background-color: bisque; */
+  display: flex;
+  flex-direction: row;
+}
+.birth-names {
+  /* background-color: aqua;
+  border: solid beige; */
+  width: 41%;
+}
+.stage-names {
+  /* background-color: brown; */
+  width: 50%;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: row;
+}

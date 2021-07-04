@@ -1,0 +1,12 @@
+.names-container {
+  display: flex;
+}
+
+.birthName {
+  color: blue;
+  margin-right: 10px;
+}
+
+.stageName {
+  color: red;
+}
