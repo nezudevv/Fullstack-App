@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputsComponent from "./InputsComponent";
 import RapperBirthNames from "./RapperBirthNames";
 import RapperStageNames from "./RapperStageNames";
+import DeleteButton from "./DeleteButton";
 import "./App.css";
 
 function App() {
@@ -24,12 +25,12 @@ function App() {
   return (
     <div className='app-container'>
       <div className='body-wrapper'>
-        <h1>Rappers Info</h1>
+        <h1>Rapper Info</h1>
         <div className='core-components-wrapper'>
           <InputsComponent className='inputs' />
           <div className='names-container'>
             <div className='birth-names'>
-              <h2>Birth Name</h2>
+              <h2>Birth Name:</h2>
               <RapperBirthNames rapper={rapper} />
             </div>
             <div className='stage-names'>

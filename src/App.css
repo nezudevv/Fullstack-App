@@ -1,34 +1,60 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  background-color: #eff9fc;
+}
 .app-container {
+  justify-content: center;
+  /* margin-left: 20px; */
+  color: rgb(27, 27, 27);
+  display: flex;
 }
 .body-wrapper {
+  justify-content: center;
   display: flex;
   flex-direction: column;
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
+  color: rgb(27, 27, 27);
 }
 
+.input-and-button {
+  display: flex;
+  align-items: center;
+}
 .core-components-wrapper {
+  display: flex;
+  flex-direction: column;
 }
-.inputs {
-  justify-content: center;
-}
+
 .names-container {
+  display: flex;
+  justify-content: center;
 }
 
 .birth-names {
   font-size: 18px;
+  color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
 }
 
 .stage-names {
-  margin-left: 32px;
+  /* margin-left: 32px; */
   font-size: 18px;
-}
-
-.inputs-container {
 }
 
 .name-delete {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }

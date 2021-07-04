@@ -1,4 +1,6 @@
 import { useState } from "react";
+import InputStyles from "./InputStyles";
+import SubmitButtonStyle from "./SubmitButtonStyle";
 
 function InputsComponent() {
   const [input, setInput] = useState("");
@@ -19,7 +21,7 @@ function InputsComponent() {
       // stageName: secondInput,
     };
     if (input === "") {
-      alert("Fields must not be empty.");
+      alert("Field must not be empty.");
     } else {
       console.log(newItem);
       const info = {
@@ -35,19 +37,10 @@ function InputsComponent() {
 
   return (
     <div>
-      <input
-        placeholder={"Birth Name"}
-        value={input}
-        onInput={onInputHandler}
-      />
-
-      {/* <input
-        placeholder={"Stage Name"}
-        value={secondInput}
-        onInput={secondInputHandler}
-      ></input> */}
-
-      <button onClick={onClickHandler}>Submit</button>
+      <div className='input-and-button'>
+        <InputStyles input={input} onInputHandler={onInputHandler} />
+        <SubmitButtonStyle onClickHandler={onClickHandler} />
+      </div>
     </div>
   );
 }
