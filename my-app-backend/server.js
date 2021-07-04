@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { accessKeyId, sAccessKey } from "./conf.js";
-import { getRappers } from "./dynamo.js";
+import { getRappers, deleteRapper } from "./dynamo.js";
 import AWS from "aws-sdk";
 import bodyParser from "body-parser";
 
@@ -57,17 +57,16 @@ app.post("/api", (request, response) => {
   });
 });
 
-// const getRappers = async () => {
-//   const params = {
-//     TableName: "Rappers",
-//     // Key: { id: "id" },
-//   };
-//   const rappers = await ddb.scan(params).promise();
-//   console.log(rappers);
-//   return rappers;
-// };
+// Delete
+app.delete("/api/", async (req, res) => {
+  const { id } = req.params;
+  try {
+    res.json(await deleteRapper(id));
+  } catch (err) {
+    console.log(err);
+  }
+});
 
-// getRappers();
 app.listen(PORT, () => {
   console.log(`yayyy Server running on ${PORT}`);
 });

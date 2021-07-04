@@ -29,28 +29,19 @@ const getRappers = async () => {
 //   return await dynamoClient.put(params).promise();
 // }
 
-// const getRapperById = async id => {
-//   const params = {
-//     TableName: TABLE_NAME,
-//     Key: {
-//       id,
-//     },
-//   };
-//   return await dynamoClient.get(params).promise();
-// };
-// const deleteRapper = async id => {
-//   const params = {
-//     TableName: TABLE_NAME,
-//     Key: {
-//       id,
-//     },
-//   };
-//   return await dynamoClient.delete(params).promise();
-// };
+const deleteRapper = async id => {
+  const params = {
+    TableName: TABLE_NAME,
+    Key: {
+      id,
+    },
+  };
+  return await dynamoClient.delete(params).promise();
+};
 // module.exports = {
 //   dynamoClient,
 //   getRappers,
-//   addOrUpdateRapper,
+// addOrUpdateRapper,
 // };
 
-export { getRappers };
+export { getRappers, deleteRapper };

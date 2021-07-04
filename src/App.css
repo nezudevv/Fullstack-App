@@ -1,29 +1,34 @@
+.app-container {
+}
 .body-wrapper {
-  /* border: solid red; */
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
 }
 
 .core-components-wrapper {
-  display: inline-block;
-  /* border: solid blue; */
+}
+.inputs {
+  justify-content: center;
 }
 .names-container {
-  /* background-color: bisque; */
-  display: flex;
-  flex-direction: row;
 }
+
 .birth-names {
-  /* background-color: aqua;
-  border: solid beige; */
-  width: 41%;
+  font-size: 18px;
 }
+
 .stage-names {
-  /* background-color: brown; */
-  width: 50%;
+  margin-left: 32px;
+  font-size: 18px;
 }
 
 .inputs-container {
+}
+
+.name-delete {
   display: flex;
   flex-direction: row;
 }

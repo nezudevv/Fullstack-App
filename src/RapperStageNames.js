@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 function RapperStageNames({ rapper }) {
   return (
     <div>
       {rapper.map(r => (
         <div key={r.id}>
-          <p>{r.stageName}</p>
+          <p className='stageName'>{r.stageName}</p>
         </div>
       ))}
     </div>

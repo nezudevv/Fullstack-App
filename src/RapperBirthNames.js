@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 function RapperBirthNames({ rapper }) {
+  function deleteButtonHandler(id) {
+    console.log("test");
+  }
   return (
     <div>
       {rapper.map(r => (
-        <div key={r.id}>
-          <p>{r.birthName}</p>
+        <div className='name-delete' key={r.id}>
+          <p className='birthName'>{r.birthName}</p>
+          <button onClick={() => deleteButtonHandler(r.id)}>X</button>
         </div>
       ))}
     </div>

@@ -6,17 +6,15 @@ import "./App.css";
 
 function App() {
   const [rapper, setRapperData] = useState([]);
+  const [loadingScreen, setLoadingScreen] = useState(false);
 
   useEffect(() => {
     try {
-      async function getData() {
-        const data = await fetch("http://localhost:8000/api/rappers").then(
-          res => res.json()
-        );
-        setRapperData(data.Items);
-        return data;
-      }
-      getData();
+      fetch("http://localhost:8000/api/rappers")
+        .then(res => res.json())
+        .then(res => {
+          setRapperData(res.Items);
+        });
     } catch (err) {
       console.log("whyyyyyy", err);
     }
@@ -24,19 +22,19 @@ function App() {
 
   // Functions
   return (
-    <div>
+    <div className='app-container'>
       <div className='body-wrapper'>
         <h1>Rappers Info</h1>
         <div className='core-components-wrapper'>
-          <InputsComponent />
+          <InputsComponent className='inputs' />
           <div className='names-container'>
             <div className='birth-names'>
               <h2>Birth Name</h2>
               <RapperBirthNames rapper={rapper} />
             </div>
             <div className='stage-names'>
-              <h2>Stage Name</h2>
-              <RapperStageNames rapper={rapper} />
+              {/* <h2>Stage Name</h2>
+              <RapperStageNames rapper={rapper} /> */}
             </div>
           </div>
         </div>
