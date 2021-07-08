@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { accessKeyId, sAccessKey } from "./conf.js";
-import { getRappers, deleteRapper } from "./dynamo.js";
+import { getRappers, deleteRapper, addOrUpdateRapper } from "./dynamo.js";
 import AWS from "aws-sdk";
 import bodyParser from "body-parser";
 
@@ -34,38 +34,82 @@ app.get("/api/rappers", async (request, response) => {
   }
 });
 
-// Post
-app.post("/api", (request, response) => {
-  console.log(request.body);
-  const data = request.body;
-
-  const params = {
-    TableName: "Rappers",
-    Item: {
-      id: data.id,
-      birthName: data.birthName,
-      stageName: data.stageName,
-      // likes: { S: "11" },
-    },
-  };
-  ddb.put(params, function (err, data) {
-    if (err) {
-      console.log("Error", err);
-    } else {
-      console.log("Success", data);
-    }
-  });
+app.post("/api", async (req, res) => {
+  const rapper = req.body;
+  try {
+    const newRapper = await addOrUpdateRapper(rapper);
+    res.json(newRapper);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
-// Delete
-app.delete("/api/", async (req, res) => {
+app.post("/api/rappers/:id", async (req, res) => {
+  const rapper = req.body;
   const { id } = req.params;
+  console.log(req);
+  rapper.id = id;
+  try {
+    const updatedRappers = await addOrUpdateRapper(rapper);
+    res.json(updatedRappers);
+  } catch (err) {
+    console.log("error while updating rapper: ", err);
+  }
+});
+
+// Post
+// app.post("/api", (request, response) => {
+//   const data = request.body;
+
+//   const params = {
+//     TableName: "Rappers",
+//     Item: {
+//       id: data.id,
+//       birthName: data.birthName,
+//       stageName: data.stageName,
+//       // likes: { S: "11" },
+//     },
+//   };
+//   ddb.put(params, function (err, data) {
+//     if (err) {
+//       console.log("Error", err);
+//     } else {
+//       console.log("Success", data);
+//     }
+//   });
+// });
+
+// Delete
+app.delete("/api/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
   try {
     res.json(await deleteRapper(id));
   } catch (err) {
     console.log(err);
   }
 });
+
+app.post("/api/rappers/:id", async (req, res) => {
+  const rapper = req.body;
+  const { id } = req.params;
+  rapper.id = id;
+  try {
+    const updatedRappers = await addOrUpdateRapper(rapper);
+    res.json(updatedRappers);
+  } catch (err) {
+    console.log(err);
+  }
+});
+// app.get("/rappers/:id", async (req, res) => {
+//   const id = req.params.id;
+//   try {
+//     const rappers = await addOrUpdateRapper(id);
+//     res.json(rappers);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`yayyy Server running on ${PORT}`);

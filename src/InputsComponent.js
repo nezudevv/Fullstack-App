@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputStyles from "./InputStyles";
 import SubmitButtonStyle from "./SubmitButtonStyle";
 
-function InputsComponent() {
+function InputsComponent({ getRapper }) {
   const [input, setInput] = useState("");
   // const [secondInput, setSecondInput] = useState("");
   // const [data, setData] = useState([{ id: "1", birthName: "testing" }]);
@@ -10,9 +10,6 @@ function InputsComponent() {
   function onInputHandler(e) {
     setInput(e.target.value);
   }
-  // function secondInputHandler(e) {
-  //   setSecondInput(e.target.value);
-  // }
 
   async function onClickHandler() {
     const newItem = {
@@ -33,6 +30,7 @@ function InputsComponent() {
       };
       await fetch("http://localhost:8000/api", info);
     }
+    getRapper();
   }
 
   return (

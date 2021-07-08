@@ -11,6 +11,7 @@ AWS.config.update({
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
 const TABLE_NAME = "Rappers";
 
+// CRUD
 const getRappers = async () => {
   const params = {
     TableName: TABLE_NAME,
@@ -19,15 +20,6 @@ const getRappers = async () => {
   console.log(rappers);
   return rappers;
 };
-// getRappers();
-
-// export default async function addOrUpdateRapper(rapper) {
-//   const params = {
-//     TableName: TABLE_NAME,
-//     Item: rapper,
-//   };
-//   return await dynamoClient.put(params).promise();
-// }
 
 const deleteRapper = async id => {
   const params = {
@@ -38,10 +30,23 @@ const deleteRapper = async id => {
   };
   return await dynamoClient.delete(params).promise();
 };
-// module.exports = {
-//   dynamoClient,
-//   getRappers,
-// addOrUpdateRapper,
+
+const addOrUpdateRapper = async rapper => {
+  const params = {
+    TableName: TABLE_NAME,
+    Item: rapper,
+  };
+  return await dynamoClient.put(params).promise();
+};
+
+// const getRapperById = async id => {
+//   const params = {
+//     TableName: TABLE_NAME,
+//     Key: {
+//       id,
+//     },
+//   };
+//   return await dynamoClient.put(params).promise();
 // };
 
-export { getRappers, deleteRapper };
+export { getRappers, deleteRapper, addOrUpdateRapper };
